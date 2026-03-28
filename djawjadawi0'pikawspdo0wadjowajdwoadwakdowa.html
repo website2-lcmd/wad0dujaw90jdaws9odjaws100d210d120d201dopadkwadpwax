@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Redes y salud mental</title>
+  <!-- Fuentes kaekje -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 de nose ola -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff7f9;  /* rosa */
+      font-family: 'Inter', sans-serif;
+      color: #3e2c34;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#fadadd 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* tipografía */
+    h1, h2, h3 {
+      font-family: 'Kalam', cursive;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #bf6f8a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      font-weight: 600;
+      text-shadow: 2px 2px 0 #ffe0e7;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      color: #b45f7a;
+      margin: 2rem 0 0.8rem 0;
+      border-left: 5px solid #f7bcce;
+      padding-left: 1rem;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: #cd809b;
+      margin: 1rem 0 0.5rem;
+      font-weight: 500;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #b28294;
+      margin-bottom: 2rem;
+      border-bottom: 1px dashed #f7cfda;
+      padding-bottom: 1rem;
+      font-style: italic;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-weight: 400;
+      color: #4e3a42;
+    }
+
+    .card {
+      background: #fffcfd;
+      border-radius: 32px;
+      padding: 1.6rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 6px 12px rgba(180, 90, 110, 0.05);
+      border: 1px solid #fbe2ea;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(180, 90, 110, 0.08);
+      border-color: #f9cfdc;
+    }
+
+    /* columnasagwawa */
+    .two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .col {
+      flex: 1;
+      min-width: 240px;
+      background: #fffcfd;
+      border-radius: 32px;
+      padding: 1.5rem;
+      border: 1px solid #fadfe8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s;
+    }
+
+    .col i {
+      font-size: 2rem;
+      color: #e29aaf;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: #fff2f5;
+      padding: 0.5rem;
+      border-radius: 60px;
+    }
+
+    .col h3 {
+      margin-top: 0;
+      border-left: none;
+      padding-left: 0;
+      font-family: 'Kalam', cursive;
+    }
+
+    /* lista con viñetas q se pueden personalizar wkjadowa */
+    ul {
+      margin: 0.8rem 0 1rem 1.4rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.45;
+    }
+
+
+    .referencias {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #fff5f8;
+      border-radius: 40px;
+      border: 1px solid #fad1df;
+      font-size: 0.9rem;
+      color: #a46c7e;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .referencias p {
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+      color: #b45f7a;
+    }
+
+    .referencias ul {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .referencias li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .referencias li:before {
+      content: "🌸";
+      position: absolute;
+      left: -0.2rem;
+      top: 0;
+      font-size: 0.85rem;
+    }
+
+    /* detalles pa deco */
+    .intro-highlight {
+      background: #fffafb;
+      border-radius: 38px;
+      padding: 1.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #fbdae6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffeef3;
+      border-radius: 60px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #bc7e94;
+      margin-bottom: 1rem;
+      font-family: 'Kalam', cursive;
+      border: 1px solid #fbcad9;
+    }
+
+    hr {
+      margin: 1.5rem 0;
+      border: 0;
+      height: 2px;
+      background: repeating-linear-gradient(45deg, #f3b9cb, #f3b9cb 8px, transparent 8px, transparent 16px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #daaabb;
+      border-top: 1px solid #fcdde8;
+      padding-top: 2rem;
+      font-family: 'Kalam', cursive;
+    }
+
+    /* detalles nose */
+    .sticky-note {
+      background: #fff9e8;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #b28294;
+      margin-top: 0.5rem;
+      font-family: 'Kalam', cursive;
+      border: 1px dashed #f1bbc9;
+      transform: rotate(-1deg);
+    }
+
+    /* boton pa volver arriba con rosita  */
+    .top-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #ffdee8;
+      color: #b45f7a;
+      width: 48px;
+      height: 48px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+      border: 1px solid #fbc7d6;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      font-family: monospace;
+    }
+    .top-btn:hover {
+      opacity: 1;
+      background: #ffcfdf;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .two-columns {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* añade un dibujo nomas */
+    .card:first-child::after {
+      content: "✿";
+      font-size: 2rem;
+      color: #f7c2d4;
+      position: absolute;
+      bottom: -10px;
+      right: 15px;
+      opacity: 0.5;
+      font-family: monospace;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <div class="badge-icon">
+    <i class="fas fa-heart" style="color:#e29aaf"></i> <span>conversaciones entre rosas · bienestar joven</span>
+  </div>
+  <h1>Redes Sociales y Salud Mental en Jóvenes</h1>
+  <div class="subhead">
+    <i class="fas fa-feather-alt" style="margin-right: 8px; color:#e7a2b8;"></i> 
+    | AYLIN |
+  </div>
+
+  <!-- introduccioon -->
+  <div class="intro-highlight">
+    <i class="fas fa-hashtag" style="font-size: 1.6rem; color:#e7a2b8; margin-bottom: 12px; display: inline-block;"></i>
+    <p style="font-size:1.05rem"><strong>¿Qué son las redes sociales?</strong> Son plataformas digitales que permiten la interacción entre personas mediante el intercambio de contenido, mensajes e información. Estas herramientas han cambiado la forma en que los jóvenes se comunican y se relacionan con su entorno. Actualmente, las redes sociales forman parte importante de la vida diaria, ya que permiten mantenerse en contacto con amigos, familiares y comunidades digitales.</p>
+    <p>Entre las redes sociales más utilizadas por los jóvenes se encuentran Instagram, TikTok, Facebook y WhatsApp. Permiten compartir fotos, videos y opiniones, algo que puede ser positivo para la expresión personal. Pero ojo: el uso excesivo puede generar dependencia digital y afectar el bienestar emocional.</p>
+    <div class="sticky-note"><i class="fas fa-heartbeat"></i>  dato: no se trata de prohibir, sino de entendernos :))</div>
+  </div>
+
+  <!-- Uso de redes sociales carta1111-->
+  <h2><i class="fas fa-mobile-alt" style="font-size: 1.6rem; margin-right: 12px; color:#e7a2b8;"></i> Uso de redes sociales en jóvenes</h2>
+  <div class="card">
+    <p>Los jóvenes utilizan redes sociales diariamente para comunicarse, entretenerse e informarse. Este uso frecuente puede convertirse en una rutina que influye en su comportamiento y emociones. Muchos estudiantes pasan varias horas conectados, lo cual puede afectar sus actividades académicas y su descanso.</p>
+    <p>Además, las redes sociales pueden influir en la forma en que los jóvenes perciben la realidad. Al observar contenido idealizado, pueden surgir comparaciones sociales que afectan la autoestima. Por ello, es importante analizar el tiempo que se dedica a estas plataformas.</p>
+  </div>
+
+  <!-- Impacto en la salud mental cartaa 2222 -->
+  <h2><i class="fas fa-brain" style="margin-right: 10px; color:#e7a2b8;"></i> Impacto en la salud mental</h2>
+  <div class="card">
+    <p>El uso excesivo de redes sociales puede generar efectos negativos en la salud mental. Algunos jóvenes experimentan ansiedad al esperar aprobación mediante "likes" o comentarios. También pueden sentirse presionados por mostrar una imagen perfecta ante los demás.</p>
+    <p>Otro efecto importante es la depresión, la cual puede surgir cuando existe aislamiento social o comparación constante. Además, el uso prolongado del celular puede provocar problemas de sueño, lo cual afecta la concentración y el rendimiento académico.</p>
+  </div>
+
+  <!-- Ventajas Desventajas -->
+  <div class="two-columns">
+    <div class="col">
+      <i class="fas fa-seedling"></i>
+      <h3>Ventajas</h3>
+      <p>Las redes sociales ofrecen beneficios importantes para los jóvenes. Permiten la comunicación rápida y el acceso a información educativa. También brindan oportunidades para el aprendizaje digital y el desarrollo de habilidades tecnológicas.</p>
+      <p>Asimismo, las redes sociales permiten la expresión personal y la creatividad. Muchos jóvenes utilizan estas plataformas para compartir ideas, proyectos y experiencias positivas.</p>
+    </div>
+    <div class="col">
+      <i class="fas fa-cloud-rain"></i>
+      <h3> Desventajas</h3>
+      <p>Entre las principales desventajas se encuentra la adicción digital. Algunos jóvenes pasan demasiado tiempo conectados, descuidando sus actividades escolares y personales. También puede presentarse ansiedad y estrés por la constante interacción digital.</p>
+      <p>Otra desventaja es la comparación social, la cual puede afectar la autoestima. Esto puede generar sentimientos negativos y afectar el bienestar emocional.</p>
+    </div>
+  </div>
+
+  <!-- Consecuencias -->
+  <h2><i class="fas fa-chart-line" style="margin-right: 10px;"></i> Consecuencias del uso excesivo</h2>
+  <div class="card">
+    <p>El uso excesivo de redes sociales puede generar diversas consecuencias. Entre ellas se encuentran problemas emocionales, bajo rendimiento académico y aislamiento social. Estas situaciones pueden afectar el desarrollo personal de los jóvenes.</p>
+    <p>Además, la dependencia digital puede generar dificultad para desconectarse de las plataformas. Esto puede afectar las relaciones personales y la salud mental.</p>
+  </div>
+
+  <!-- Soluciones Uso responsable -->
+  <div class="two-columns">
+    <div class="col">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Soluciones prácticas</h3>
+      <p>Para evitar los efectos negativos, se recomienda limitar el tiempo de uso de redes sociales. También es importante realizar actividades recreativas y convivir con familiares y amigos.</p>
+      <p>Otra recomendación es evitar el uso del celular antes de dormir. Estas acciones ayudan a mejorar el bienestar emocional y la salud mental.</p>
+    </div>
+    <div class="col">
+      <i class="fas fa-balance-scale"></i>
+      <h3>Uso responsable</h3>
+      <p>El uso responsable de redes sociales implica mantener un equilibrio entre la vida digital y la vida personal. Los jóvenes deben aprender a controlar el tiempo que pasan conectados y priorizar sus actividades académicas.</p>
+      <p>También es importante seguir contenido positivo y evitar comparaciones sociales. Esto contribuye a mejorar la autoestima y el bienestar emocional.</p>
+    </div>
+  </div>
+
+  <!-- Conclusiooooon -->
+  <h2><i class="fas fa-pen-fancy"></i> Conclusión</h2>
+  <div class="card" style="background: #fff9fb;">
+    <p>Las redes sociales son herramientas útiles para la comunicación y el aprendizaje. Sin embargo, su uso excesivo puede afectar la salud mental de los jóvenes.</p>
+    <p style="margin-bottom: 0;">Es importante promover un uso responsable y equilibrado para aprovechar sus beneficios sin afectar el bienestar emocional. <i class="fas fa-smile-wink"></i> Escuchar las señales internas, desconectarse a tiempo y construir relaciones genuinas tanto online como offline marcan la diferencia.</p>
+    <div class="sticky-note" style="margin-top: 1rem;"><i class="fas fa-hand-holding-heart"></i>  cuidar la mente también es cool</div>
+  </div>
+
+  <!-- Referenciassssssssssssssssssssssss -->
+  <div class="referencias">
+    <p><i class="fas fa-book-open"></i> <strong>Referencias</strong></p>
+    <ul>
+      <li>Rodríguez Vera, N. P., Cruz Gordillo, D. C., & Maldonado Palacios, I. A. (2025). <em>Redes sociales en la salud mental de los adolescentes en entornos urbanos de Ecuador.</em></li>
+      <li>Casanova‑Garrigós, G., Torrubia‑Pérez, E., Cañellas Reverté, N., Capera Fernández, J., Mora‑López, G., & Albacar‑Riobóo, N. (2025). <em>Influencia de las redes sociales en la imagen corporal de adolescentes.</em></li>
+      <li>Vélez Sancarranco, M. A. (2025). <em>Impacto de las redes sociales en la salud mental de adolescentes: revisión sistemática.</em></li>
+    </ul>
+    <hr style="margin: 1rem 0 0.2rem; background: #f7cfdc; height: 1px;">
+    <p style="font-size:0.8rem; margin-top: 12px;">:)</p>
+  </div>
+
+  <footer>
+    <i class="fas fa-hand-sparkles"></i> !!!!!!!!!
+  </footer>
+</div>
+
+<button class="top-btn" id="btnTop" aria-label="Volver arriba">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+  const btn = document.getElementById('btnTop');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn.style.opacity = '0.9';
+      } else {
+        btn.style.opacity = '0.6';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
